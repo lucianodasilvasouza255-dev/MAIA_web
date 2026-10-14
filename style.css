@@ -1,0 +1,227 @@
+
+/* CONFIGURAÇÕES GERAIS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #120b24, #251044, #101827);
+    color: white;
+    min-height: 100vh;
+}
+
+/* CABEÇALHO */
+
+header {
+    text-align: center;
+    padding: 30px 20px;
+    border-bottom: 1px solid #7046a8;
+}
+
+header h1 {
+    font-size: 42px;
+    color: #d8b4fe;
+    letter-spacing: 5px;
+    text-shadow: 0 0 20px #a855f7;
+}
+
+header p {
+    margin-top: 10px;
+    color: #d1c4e9;
+}
+
+/* ÁREA DO CHAT */
+
+main {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.chat-container {
+    width: 100%;
+    max-width: 700px;
+    min-height: 400px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid #7046a8;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.15);
+}
+
+/* MENSAGENS */
+
+.mensagem {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    line-height: 1.6;
+}
+
+.maia {
+    background: #38205a;
+    border: 1px solid #8b5cf6;
+}
+
+/* CAMPO DE DIGITAÇÃO */
+
+.area-digitacao {
+    display: flex;
+    gap: 10px;
+    margin-top: 280px;
+}
+
+#mensagem {
+    flex: 1;
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid #8b5cf6;
+    border-radius: 10px;
+    outline: none;
+    background: #171126;
+    color: white;
+    font-size: 15px;
+}
+
+#mensagem:focus {
+    box-shadow: 0 0 10px #8b5cf6;
+}
+
+#enviar {
+    padding: 14px 22px;
+    border: none;
+    border-radius: 10px;
+    background: #9333ea;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#enviar:hover {
+    background: #a855f7;
+    transform: translateY(-2px);
+}
+
+/* CELULARES */
+
+@media (max-width: 500px) {
+    header h1 {
+        font-size: 34px;
+    }
+
+    .chat-container {
+        padding: 15px;
+    }
+
+    .area-digitacao {
+        gap: 6px;
+    }
+
+    #enviar {
+        padding: 12px;
+    }
+}
+
+.usuario {
+    background: #6d28d9;
+    border: 1px solid #a78bfa;
+    margin-left: auto;
+    max-width: 85%;
+    overflow-wrap: anywhere;
+}
+
+.mensagem {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+#enviar:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+/* ÁREA DAS MENSAGENS */
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: min(70vh, 650px);
+    min-height: 400px;
+    gap: 16px;
+}
+
+.area-mensagens {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-right: 8px;
+    scroll-behavior: smooth;
+}
+
+.area-mensagens .mensagem {
+    margin-bottom: 0;
+}
+
+/* CAMPO DE DIGITAÇÃO FIXO NO RODAPÉ DO CHAT */
+
+.area-digitacao {
+    margin-top: 0;
+    flex-shrink: 0;
+}
+
+/* BARRA DE ROLAGEM */
+
+.area-mensagens::-webkit-scrollbar {
+    width: 6px;
+}
+
+.area-mensagens::-webkit-scrollbar-thumb {
+    background: #8b5cf6;
+    border-radius: 10px;
+}
+
+/* ANIMAÇÃO DE PENSAMENTO DA MAIA */
+
+.digitando {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: fit-content;
+    min-width: 80px;
+}
+
+.digitando span {
+    width: 8px;
+    height: 8px;
+    background: #d8b4fe;
+    border-radius: 50%;
+    animation: pulsar 1.2s infinite ease-in-out;
+}
+
+.digitando span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.digitando span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes pulsar {
+    0%, 60%, 100% {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+
+    30% {
+        transform: translateY(-7px);
+        opacity: 1;
+    }
+}
